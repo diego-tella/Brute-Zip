@@ -1,5 +1,5 @@
 # Brute-Zip
-Simple brute force in zip files.<br>
+<b>Simple brute force in zip files.</b><br><br>
 <img src="images/main.png" >
 <h1>Cracked: </h1>
 <img src="images/broken.png" >
