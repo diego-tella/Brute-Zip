@@ -1,0 +1,40 @@
+Query é essa:
+SELECT nome FROM users WHERE id = ?
+
+Ele deixa a gente passar o ID como argumento.
+Podemos quebrar?
+
+//MySqlCommand comand = new MySqlCommand("SELECT nome FROM users WHERE id = ?;", con); not vulnerable
+                comand.Parameters.Clear();
+                // comand.Parameters.Add("@id", MySqlDbType.Int32).Value = TxtID.Text;  not vulnerable
+Não é vulnerável. Ele espera um inteiro por padrão como argumento, então não
+dá pra colocar outros caracteres.
+
+diego' or SELECT * FROM nomes;
+
+SELECT status FROM nomes WHERE nome = 'diego' and SELECT * FROM nomes;
+
+diego'; select "algumacoisa" into outfile "test.txt"
+
+SELECT * FROM nomes WHERE nome ="diego" AND senha ="Senha";
+
+
+=============================================
+TABELA
+
+
+create database sqli;
+use sqli;
+#====login====
+create table names (name VARCHAR(30), pass VARCHAR(30));
+INSERT INTO names VALUES ('diego', 'strongPass');
+INSERT INTO names VALUES ('Luana', '12345643');
+INSERT INTO names VALUES ('Pedro', 'lais22');
+INSERT INTO names VALUES ('Pablo', '9098r99r');
+
+#======delete=====
+create table deleteme (a int);
+create table users (id int, name VARCHAR(20), pass VARCHAR(20));
+INSERT INTO users VALUES (1, 'diego', 'mypass');
+INSERT INTO users VALUES (2, 'Jonas', '124324543');
+INSERT INTO users VALUES (3, 'richard', '09ijo0j');
